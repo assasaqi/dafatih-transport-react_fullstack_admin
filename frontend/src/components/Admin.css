@@ -1,0 +1,739 @@
+/* ==========================================
+   1. LAYOUT UTAMA DASHBOARD ADMIN
+   ========================================== */
+.admin-container,
+.admin-layout-container {
+    display: flex;
+    min-height: 95vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    margin: 10px auto;
+    max-width: 1500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.admin-sidebar {
+    width: 220px;
+    background: #f8f9fa;
+    border-right: 1px solid #eaeaea;
+    padding: 20px 12px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-brand {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.sidebar-brand-icon {
+    color: #007bff;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: #495057;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.sidebar-btn:hover {
+    background: #e9ecef;
+    color: #007bff;
+}
+
+.sidebar-btn.active {
+    background: #007bff;
+    color: #ffffff;
+}
+
+.admin-content,
+.admin-main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #ffffff;
+    overflow-y: auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 12px;
+    gap: 12px;
+}
+
+.content-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333333;
+}
+
+/* ==========================================
+   2. TOOLBAR & SEARCH BAR
+   ========================================== */
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.search-input-box {
+    position: relative;
+    flex-grow: 1;
+    max-width: 320px;
+}
+
+.search-input-box input {
+    width: 100%;
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    font-size: 12px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.search-input-box input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.filter-toolbar {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filter-btn {
+    background: #f1f3f5;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background: #e9ecef;
+}
+
+.filter-btn.active {
+    background: #007bff;
+    color: #ffffff;
+}
+
+/* ==========================================
+   3. LIST KARTU DATA (DESKTOP HORIZONTAL SLIM)
+   ========================================== */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.item-card-wrapper {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.item-card-wrapper.is-open {
+    border-color: #007bff;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.12);
+}
+
+.item-card-wrapper .item-card {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.item-card {
+    background: #ffffff;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.card-thumbnail {
+    width: 60px !important;
+    height: 42px !important;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.card-main-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex-grow: 1;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    width: 180px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333333;
+}
+
+.card-category-badge {
+    font-size: 10px;
+    background: #e7f1ff;
+    color: #007bff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.card-route-info {
+    font-size: 11px;
+    margin: 0;
+    color: #555555;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.card-price {
+    font-size: 12px;
+    font-weight: 700;
+    color: #28a745;
+    margin: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   4. TOMBOL UTAMA & DROPDOWN TOGGLE
+   ========================================== */
+.btn-edit,
+.btn-delete,
+.btn-add-primary,
+.btn-dropdown-toggle {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 11px;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.btn-edit {
+    padding: 4px 10px;
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-delete {
+    padding: 4px 10px;
+    background: #dc3545;
+    color: #ffffff;
+}
+
+.btn-add-primary {
+    background: #28a745;
+    color: #ffffff;
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.btn-dropdown-toggle {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+}
+
+.btn-dropdown-toggle:hover {
+    background: #dee2e6;
+    color: #007bff;
+}
+
+.btn-dropdown-toggle.active {
+    background: #007bff;
+    color: #ffffff;
+}
+
+.empty-text {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ==========================================
+   5. PANEL DROPDOWN DETAIL KONTEN
+   ========================================== */
+.card-detail-dropdown {
+    background: #f8f9fa;
+    border-top: 1px dashed #e0e0e0;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #495057;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px 16px;
+}
+
+.detail-item strong {
+    color: #333333;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.full-width-detail {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+}
+
+.full-width-detail p {
+    margin: 4px 0 0 0;
+    color: #555555;
+    line-height: 1.4;
+    background: #ffffff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   6. MODAL FORM & CONFIRMATION MODAL
+   ========================================== */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.btn-close-modal {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.admin-form-grid input,
+.admin-form-grid select,
+.admin-form-grid textarea {
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    outline: none;
+}
+
+.admin-form-grid input:focus,
+.admin-form-grid select:focus,
+.admin-form-grid textarea:focus {
+    border-color: #007bff;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.form-label {
+    font-size: 11px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    color: #495057;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-submit-save,
+.btn-submit-update {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.btn-submit-save {
+    background: #28a745;
+    color: #ffffff;
+}
+
+.btn-submit-update {
+    background: #ffc107;
+    color: #000000;
+}
+
+.btn-cancel {
+    padding: 8px 16px;
+    background: #6c757d;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.confirm-modal-card {
+    max-width: 380px;
+    text-align: center;
+}
+
+.confirm-modal-body {
+    padding: 16px 0;
+    font-size: 13px;
+    color: #495057;
+}
+
+.confirm-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* ==========================================
+   7. UPLOAD & PREVIEW GAMBAR
+   ========================================== */
+.image-upload-box {
+    border: 1px dashed #007bff;
+    padding: 8px;
+    border-radius: 5px;
+    background: #e7f1ff;
+    text-align: center;
+}
+
+.file-input {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    font-size: 11px;
+}
+
+.image-preview-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.image-preview {
+    width: 65px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.upload-success-badge {
+    font-size: 11px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* ==========================================
+   8. PAGINATION STYLES
+   ========================================== */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.pagination-btn {
+    padding: 5px 12px;
+    background: #f1f3f5;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn:not(:disabled):hover {
+    background: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.pagination-info {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ==========================================
+   9. RESPONSIF TABLET & IPAD (601px - 1024px)
+   ========================================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .item-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        padding: 8px 12px !important;
+    }
+
+    .card-thumbnail {
+        width: 65px !important;
+        height: 45px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .card-main-info {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        flex-grow: 1 !important;
+        overflow: hidden;
+        min-width: 0;
+    }
+
+    .card-title {
+        width: 160px !important;
+        font-size: 13px !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 0 !important;
+    }
+
+    .card-category-badge,
+    .card-route-info,
+    .card-price {
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+
+    .card-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* ==========================================
+   10. RESPONSIF MOBILE (<= 600px)
+   ========================================== */
+@media (max-width: 600px) {
+
+    .admin-container,
+    .admin-layout-container {
+        flex-direction: column;
+        border-radius: 0;
+        border: none;
+        margin-top: 0;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        padding: 10px;
+        border-right: none;
+        border-bottom: 1px solid #eaeaea;
+        box-sizing: border-box;
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .item-card {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+            "thumb . actions"
+            "info info info";
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .card-thumbnail {
+        grid-area: thumb;
+        width: 55px !important;
+        height: 40px !important;
+    }
+
+    .card-actions {
+        grid-area: actions;
+        justify-self: end;
+        display: flex;
+        gap: 6px;
+    }
+
+    .card-main-info {
+        grid-area: info;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        width: 100%;
+    }
+
+    .card-title {
+        width: 100% !important;
+        white-space: normal !important;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-add-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .admin-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}

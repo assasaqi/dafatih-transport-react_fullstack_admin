@@ -1,0 +1,71 @@
+/* ==========================================
+   TOOLBAR & SEARCH BAR MODULE STYLES
+   ========================================== */
+.toolbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.searchInputBox {
+    position: relative;
+    flex-grow: 1;
+    max-width: 320px;
+}
+
+.searchInputBox input {
+    width: 100%;
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    font-size: 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.searchInputBox input:focus {
+    border-color: #007bff;
+}
+
+/* ==========================================
+   PAGINATION MODULE STYLES
+   ========================================== */
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.paginationBtn {
+    padding: 5px 12px;
+    background: #f1f3f5;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.paginationBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.paginationBtn:not(:disabled):hover {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.paginationInfo {
+    font-size: 12px;
+    color: #666;
+}
